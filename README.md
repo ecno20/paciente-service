@@ -2,7 +2,7 @@
 ## Proyecto
 Microservicio Registro Paciente para aplicación Veterinaria.
 Paciente Microservicio tiene la siguiente funcionalidad:
--Registro Paciente
+- Registro Paciente
 ## Deloy
 `// TODO `
 ## Test
