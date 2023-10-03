@@ -12,7 +12,10 @@ curl http://localhost:8084/api/pacientes
 ```
 The expected result should looks like:
 ```
-[{"id":"1","nombre":"pelusa"},{"id":"2","nombre":"fido"},{"id":"3","nombre":"dragón"},{"id":"4","nombre":"Rocky"},{"id":"5","nombre":"Lanudo"}]
+[{"id":"6","nombre":"Thor"},
+{"id":"7","nombre":"Wiskas"},
+{"id":"1","nombre":"Fido"},
+{"id":"2","nombre":"Pelusa"}]
 ```
 ### Reference Documentation
 For further reference, please consider the following sections:
