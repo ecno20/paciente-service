@@ -3,7 +3,7 @@
 Microservicio Registro Paciente para aplicación Veterinaria.
 Paciente Microservicio tiene la siguiente funcionalidad:
 - Registro Paciente
-## Deloy
+## Deploy
 `// TODO `
 ## Test
 Execute the next `curl` command to validate the deploy of the service. 
