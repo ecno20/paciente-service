@@ -8,7 +8,9 @@ Paciente Microservicio tiene la siguiente funcionalidad:
 ## Test
 Execute the next `curl` command to validate the deploy of the service. 
 ```shell
-/api/pacientes/{id}
+curl -X 'GET' \
+  'http://localhost:8084/api/pacientes/1' \
+  -H 'accept: application/json'
 ```
 ```shell
 Request URL
