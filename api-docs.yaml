@@ -1,0 +1,114 @@
+openapi: 3.0.1
+info:
+  title: DogTor Veterinaria Microservice Endpoints
+  description: Definición de los Endpoints de Veterinaria Service para el sistema
+    DogTor
+  contact:
+    name: UNAM
+    url: https://www.unam.mx/
+    email: jdsmatemaster@gmail.com.mx
+  version: v1
+servers:
+- url: http://localhost:8084
+  description: Generated server url
+tags:
+- name: paciente
+  description: API del Recurso Paciente
+paths:
+  /api/pacientes/{id}:
+    get:
+      tags:
+      - paciente
+      operationId: obtenerPacientePorId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Paciente'
+    put:
+      tags:
+      - paciente
+      operationId: actualizarPaciente
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Paciente'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Paciente'
+    delete:
+      tags:
+      - paciente
+      operationId: eliminarPaciente
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          description: No Content
+  /api/pacientes:
+    get:
+      tags:
+      - paciente
+      operationId: obtenerPacientes
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Paciente'
+    post:
+      tags:
+      - paciente
+      summary: Crear Paciente
+      operationId: crearPaciente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Paciente'
+        required: true
+      responses:
+        "409":
+          description: Ya existe un Paciente con el nombre especificado
+        "201":
+          description: Paciente Creado Exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Paciente'
+components:
+  schemas:
+    Paciente:
+      type: object
+      properties:
+        id:
+          type: string
+        nombre:
+          type: string
