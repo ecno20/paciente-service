@@ -14,13 +14,30 @@ curl -X 'GET' \
 ```
 ```shell
 Request URL
+http://localhost:8084/api/pacientes
 ```
 The expected result should looks like:
-```
-[{"id":"6","nombre":"Thor"},
-{"id":"7","nombre":"Wiskas"},
-{"id":"1","nombre":"Fido"},
-{"id":"2","nombre":"Pelusa"}]
+```shell
+Server response
+Code 200	Details
+[
+  {
+    "id": "6",
+    "nombre": "Thor"
+  },
+  {
+    "id": "7",
+    "nombre": "Wiskas"
+  },
+  {
+    "id": "1",
+    "nombre": "Fido"
+  },
+  {
+    "id": "2",
+    "nombre": "Pelusa"
+  }
+]
 ```
 ### Reference Documentation
 For further reference, please consider the following sections:
