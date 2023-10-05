@@ -3,6 +3,13 @@
 Microservicio Registro Paciente para aplicación Veterinaria.
 Paciente Microservicio tiene la siguiente funcionalidad:
 - Registro Paciente
+
+The following scripts are provided for the MongoDB database/collections creation:
+
+- paciente_collection.js
+- veterinariadb_creation.js
+- load_collections_data.js
+
 ## Deploy
 `// TODO `
 ## Test
