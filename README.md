@@ -7,19 +7,60 @@ Paciente Microservicio tiene la siguiente funcionalidad:
 `// TODO `
 ## Test
 Execute the next `curl` command to validate the deploy of the service. 
+
 ```shell
 curl -X 'GET' \
   'http://localhost:8084/api/pacientes/1' \
   -H 'accept: application/json'
 ```
-```shell
-Request URL
-http://localhost:8084/api/pacientes
-```
 The expected result should looks like:
 ```shell
 Server response
 Code 200	Details
+{
+  "id": "1",
+  "nombre": "pelusa"
+}
+```
+```shell
+curl -X 'PUT' \
+  'http://localhost:8084/api/pacientes/1' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": "1",
+  "nombre": "GATITA"
+}'
+}'
+```
+The expected result should looks like:
+```shell
+Server response
+Code 200	OK Details
+{
+  "id": "1",
+  "nombre": "GATITA"
+}
+```
+```shell
+curl -X 'DELETE' \
+  'http://localhost:8084/api/pacientes/1' \
+  -H 'accept: */*'
+```
+The expected result should looks like:
+```shell
+Server response
+Code 204	No Content
+```
+```shell
+curl -X 'GET' \
+  'http://localhost:8084/api/pacientes' \
+  -H 'accept: application/json'
+```
+The expected result should looks like:
+```shell
+Server response
+Code 200	OK
 [
   {
     "id": "6",
@@ -31,7 +72,7 @@ Code 200	Details
   },
   {
     "id": "1",
-    "nombre": "Fido"
+    "nombre": "GATITA"
   },
   {
     "id": "2",
@@ -39,6 +80,28 @@ Code 200	Details
   }
 ]
 ```
+```shell
+curl -X 'POST' \
+  'http://localhost:8084/api/pacientes' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": "15",
+  "nombre": "Brandy"
+}'
+```
+The expected result should looks like:
+```shell
+Server response
+Code 201	OK
+{
+  "id": "15",
+  "nombre": "Brandy"
+}
+ 
+```
+
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
