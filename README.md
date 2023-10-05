@@ -71,12 +71,12 @@ Code 200	OK
     "nombre": "Wiskas"
   },
   {
-    "id": "1",
-    "nombre": "GATITA"
-  },
-  {
     "id": "2",
     "nombre": "Pelusa"
+  },
+  {
+    "id": "15",
+    "nombre": "Brandy"
   }
 ]
 ```
