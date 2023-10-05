@@ -1,7 +1,6 @@
 # paciente-service
 ## Proyecto
-Microservicio Registro Paciente para aplicación Veterinaria.
-Paciente Microservicio tiene la siguiente funcionalidad:
+Implementation of paciente microservice for the vet application. The paciente microservice provides the following functionalities:
 - Registro Paciente
 
 The following scripts are provided for the MongoDB database/collections creation:
