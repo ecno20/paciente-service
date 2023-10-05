@@ -6,8 +6,8 @@ Paciente Microservicio tiene la siguiente funcionalidad:
 
 The following scripts are provided for the MongoDB database/collections creation:
 
-- paciente_collection.js
 - veterinariadb_creation.js
+- paciente_collection.js
 - load_collections_data.js
 
 ## Deploy
