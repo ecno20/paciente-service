@@ -17,12 +17,11 @@ The complete specification of the image that contains the application is in the 
 ## Building the image.
 Build the image using `docker` or `podman`, below the commands for using podman. More information on how to use it [here](https://podman.io/). The first version for a standard is frequently used `1.0.`
 
+> <i class="fas fa-exclamation-triangle"></i>
+> **Warning:**
+>  Don't forget to use your Hub's account to tag the image, because when pushing the image to the hub, the account is where it will be located.
 
 `docker build -t cloud-paciente-service:spring-docker .`
-
-`Warning`
-
-Don't forget to use your Hub's account to tag the image, because when pushing the image to the hub, the account is where it will be located.
 
 `docket tag cloud-paciente-service:spring-docker ecno20/cloud-paciente-service:v1.0`
 
