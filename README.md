@@ -22,8 +22,20 @@ Build the image using `docker` or `podman`, below the commands for using podman.
 >  Don't forget to use your Hub's account to tag the image, because when pushing the image to the hub, the account is where it will be located.
 
 `docker build -t cloud-paciente-service:spring-docker .`
+The result should look like this:
 
 `docket tag cloud-paciente-service:spring-docker ecno20/cloud-paciente-service:v1.0`
+
+## Running the application.
+Run the application image into a container in `docker`, use the next command:
+
+`docker run -p 8084:8080 --network net3 cloud-paciente-service:spring-docker`
+
+The expected output after the previous command looks like this:
+
+<img width="928" alt="Resultado" src="https://github.com/ecno20/paciente-service/assets/144557398/302e7609-39f9-4659-b6e0-3d92b294a6be">
+
+
 
 `// TODO `
 ## Test
