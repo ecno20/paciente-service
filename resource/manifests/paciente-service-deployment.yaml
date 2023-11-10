@@ -1,1 +1,19 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paciente-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: paciente-service
+  template:
+    metadata:
+      labels:
+        app: paciente-service
+    spec:
+      containers:
+        - name: paciente-service-container
+          image: ecno20/cloud-paciente-service:v1.0
+          ports:
+            - containerPort: 8084
