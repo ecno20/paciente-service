@@ -192,7 +192,8 @@ For further reference, please consider the following sections:
 * [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.15/maven-plugin/reference/html/#build-image)
 * [Spring Web](https://docs.spring.io/spring-boot/docs/2.7.15/reference/htmlsingle/index.html#web)
 * [Spring Data MongoDB](https://docs.spring.io/spring-boot/docs/2.7.15/reference/htmlsingle/index.html#data.nosql.mongodb)
-
+* [Overview of Docker Hub](https://docs.docker.com/docker-hub/)
+* [Kubernetes](https://kubernetes.io/es/docs/concepts/overview/what-is-kubernetes/)
 ### Guides
 The following guides illustrate how to use some features concretely:
 
@@ -200,3 +201,5 @@ The following guides illustrate how to use some features concretely:
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
 * [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/)
+* [Docker HUB API](https://docs.docker.com/docker-hub/api/latest/)
+* [API de Kubernetes](https://kubernetes.io/es/docs/concepts/overview/kubernetes-api/)
