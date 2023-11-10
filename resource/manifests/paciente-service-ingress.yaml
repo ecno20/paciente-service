@@ -1,1 +1,17 @@
-
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: paciente-service-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: k8s.nuup.ninja
+      http:
+        paths:
+          - path: /paciente-service
+            pathType: Prefix
+            backend:
+              service:
+                name: paciente-rest-service
+                port:
+                  number: 8084
