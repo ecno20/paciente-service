@@ -15,7 +15,7 @@ This image is based on [linux/arm64](https://hub.docker.com/_/openjdk/tags?page=
 
 The complete specification of the image that contains the application is in the [Dockerfile](Dockerfile)
 ## Building the image.
-Build the image using `docker` or `podman`, below the commands for using podman. More information on how to use it [here](https://podman.io/). The first version for a standard is frequently used `1.0.`
+Build the image using `docker` , below the commands for using docker. More information on how to use it [here](https://docs.docker.com/docker-hub/). The first version for a standard is frequently used `1.0.`
 
 > <i class="fas fa-exclamation-triangle"></i>
 > **Warning:**
@@ -40,7 +40,7 @@ Step 3/7 : EXPOSE 27017
  ---> Running in cf85673e7b2b
 Removing intermediate container cf85673e7b2b
  ---> 0a8fc8773a8e
-Step 4/7 : EXPOSE 8084
+Step 4/7 : EXPOSE 8080
  ---> Running in bd7dae843657
 Removing intermediate container bd7dae843657
  ---> faadf90e0d09
@@ -68,11 +68,13 @@ Create network in `docker`
 
 Run the application image into a container in `docker`, use the next command:
 
-`docker run -p 8084:8080 --network net3 cloud-paciente-service:spring-docker`
+`docker run -p 8080:8080 --network net3 cloud-paciente-service:spring-docker`
 
 The expected output after the previous command looks like this:
 
-<img width="928" alt="Resultado" src="https://github.com/ecno20/paciente-service/assets/144557398/302e7609-39f9-4659-b6e0-3d92b294a6be">
+<img width="352" alt="Docker_final" src="https://github.com/ecno20/paciente-service/assets/144557398/7ad0d35d-890a-4cfa-bb89-b6a4c0309d8c">
+
+
 
 ## Publishing
 
@@ -92,7 +94,7 @@ Execute the next `curl` command to validate the deploy of the service.
 
 ```shell
 curl -X 'GET' \
-  'http://localhost:8084/api/pacientes/1' \
+  'http://localhost:8080/api/pacientes/1' \
   -H 'accept: application/json'
 ```
 The expected result should looks like:
@@ -106,7 +108,7 @@ Code 200	Details
 ```
 ```shell
 curl -X 'PUT' \
-  'http://localhost:8084/api/pacientes/1' \
+  'http://localhost:8080/api/pacientes/1' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -126,7 +128,7 @@ Code 200	OK Details
 ```
 ```shell
 curl -X 'DELETE' \
-  'http://localhost:8084/api/pacientes/1' \
+  'http://localhost:8080/api/pacientes/1' \
   -H 'accept: */*'
 ```
 The expected result should looks like:
@@ -136,7 +138,7 @@ Code 204	No Content
 ```
 ```shell
 curl -X 'GET' \
-  'http://localhost:8084/api/pacientes' \
+  'http://localhost:8080/api/pacientes' \
   -H 'accept: application/json'
 ```
 The expected result should looks like:
@@ -164,7 +166,7 @@ Code 200	OK
 ```
 ```shell
 curl -X 'POST' \
-  'http://localhost:8084/api/pacientes' \
+  'http://localhost:8080/api/pacientes' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
