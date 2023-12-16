@@ -1,0 +1,51 @@
+name: OpenShift Deployment
+
+on:
+#   push:
+#     branches:
+#       - main
+
+
+
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        description: 'Please write the version you want to deploy'
+
+
+# defaults:
+#   run:
+#     working-directory: manifests/
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install oc
+        uses: redhat-actions/openshift-tools-installer@v1
+        with:
+          oc: 4
+
+      # https://github.com/redhat-actions/oc-login#readme
+      - name: Log in to OpenShift
+        uses: redhat-actions/oc-login@v1
+        with:
+          openshift_server_url: ${{ secrets.NUUP_ROCKS_URL }}
+          openshift_username: ${{ secrets.OPENSHIFT_USERNAME }}
+          openshift_password: ${{ secrets.OPENSHIFT_PASSWORD }}
+          # openshift_token: ${{ env.OPENSHIFT_TOKEN }}
+          insecure_skip_tls_verify: true
+          
+      - name: Test Working Dir
+        run: |
+          echo "Verifying working directory: " ${pwd} 
+          
+      - name: Build and Deploy to OpenShift
+        run: |
+          oc project user4
+          oc apply -f ./manifests/paciente.yaml
