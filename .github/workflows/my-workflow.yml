@@ -48,4 +48,4 @@ jobs:
       - name: Build and Deploy to OpenShift
         run: |
           oc project user4
-          oc apply -f ./manifests/paciente-service-deployment.yaml
+          oc apply -f /manifests/paciente-service-deployment.yaml
