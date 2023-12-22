@@ -92,7 +92,7 @@ This project use [Tekton](https://podman.io/). as CI/CD tool. Common commands us
 ## Git clone repository
 ```bash
 tkn task start git-clone \
---param=url=https://github.com/urielhdez/diplo-cloud-notificacion-service \
+--param=url=https://github.com/ecno20/paciente-service \
 --param=deleteExisting="true" \
 --workspace=name=output,claimName=shared-workspace \
 --showlog
@@ -138,7 +138,7 @@ tkn task start kubernetes-actions \
 ```bash
 tkn pipeline start pipeline-git-clone-build-push-deploy \
 -s tekton-pipeline \
---param=repo-url=https://github.com/urielhdez/diplo-cloud-notificacion-service \
+--param=repo-url=https://github.com/ecno20/paciente-service \
 --param=tag-name=main \
 --param=image-full-path-with-tag=docker.io/cafaray/
 --param=deployment-manifest=https://raw.githubusercontent.com/brightzheng100/tekton-pipeline-example/master/manifests/deployment.yaml \
