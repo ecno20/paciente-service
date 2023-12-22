@@ -145,7 +145,7 @@ tkn pipeline start pipeline-git-clone-build-push-deploy \
 --workspace=name=maven-settings,config=maven-settings \
 --showlog
 ```
-For more details in the use of [Tekton](https://podman.io/) in the project, visit manifest section.
+For more details in the use of [Tekton](https://podman.io/) in the project, visit [manifest section](manifests/tekton.md).
 
 `// TODO `
 ## Test
