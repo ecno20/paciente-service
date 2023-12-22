@@ -85,6 +85,68 @@ Publish the image in a docker hub account using the next command.
  
  
 `docker push ecno20/cloud-paciente-service:1.0`
+## Tasks & Pipelines
+
+This project use [Tekton](https://podman.io/). as CI/CD tool. Common commands used for the automatism:
+
+## Git clone repository
+```bash
+tkn task start git-clone \
+--param=url=https://github.com/urielhdez/diplo-cloud-notificacion-service \
+--param=deleteExisting="true" \
+--workspace=name=output,claimName=shared-workspace \
+--showlog
+```
+## List directory
+```bash
+tkn task start list-directory \
+--workspace=name=directory,claimName=shared-workspace \
+--showlog
+```
+## Build source code
+```bash
+tkn task start maven \
+--param=GOALS="-B,-DskipTests,clean,package" \
+--workspace=name=source,claimName=shared-workspace \
+--workspace=name=maven-settings,config=maven-settings \
+--showlog
+```
+><i class="fas fa-exclamation-triangle"></i></i>
+>Para los proyectos Java que usen el JDK 17, recomendamos hacer uso de esta imagen maven que te permitirá llevar a cabo la compilación, tendrás que proporcionar el >párametro MAVEN_IMAGE con el siguiente valor: gcr.io/cloud-builders/kubectl@sha256:cc2e44c3355dad01d5fb017e1d1b22f1e929016360df6b311687174eb2536bed
+
+## Build image
+```bash
+tkn task start buildah \
+--param=IMAGE="docker.io/ecno20/cloud-paciente-service:1.0" \
+--param=TLSVERIFY="false" \
+--workspace=name=source,claimName=shared-workspace \
+--serviceaccount=tekton-pipeline \
+--showlog
+```
+
+## Deployment
+```bash
+tkn task start kubernetes-actions \
+--param=script="kubectl apply -f https://raw.githubusercontent.com/brightzheng100/tekton-pipeline-example/master/manifests/deployment.yaml; kubectl get deployment;" \
+--workspace=name=kubeconfig-dir,emptyDir=  \
+--workspace=name=manifest-dir,emptyDir= \
+--serviceaccount=tekton-pipeline \
+--showlog
+```
+
+## Integrated pipeline
+```bash
+tkn pipeline start pipeline-git-clone-build-push-deploy \
+-s tekton-pipeline \
+--param=repo-url=https://github.com/urielhdez/diplo-cloud-notificacion-service \
+--param=tag-name=main \
+--param=image-full-path-with-tag=docker.io/cafaray/
+--param=deployment-manifest=https://raw.githubusercontent.com/brightzheng100/tekton-pipeline-example/master/manifests/deployment.yaml \
+--workspace=name=workspace,claimName=shared-workspace \
+--workspace=name=maven-settings,config=maven-settings \
+--showlog
+```
+For more details in the use of [Tekton](https://podman.io/) in the project, visit manifest section.
 
 `// TODO `
 ## Test
