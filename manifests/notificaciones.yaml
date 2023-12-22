@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: paciente-service
+  name: paciente-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: paciente-service
+  template:
+    metadata:
+      labels:
+        app: paciente-service
+    spec:
+      containers:
+      - name: paciente-service
+        image: docker.io/ecno20/cloud-paciente-service:1.0
+        ports:
+        - containerPort: 8084
+          protocol: TCP
+        resources:
+          limits:
+            cpu: '1'
+            memory: 256Mi
+          requests:
+            cpu: '1'
+            memory: 128Mi
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: paciente-service
+  name: paciente-service
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8084
+  selector:
+    app: paciente-service
+  type: ClusterIP
