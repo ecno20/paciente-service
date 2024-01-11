@@ -1,0 +1,32 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  # generateName: pipelinerun-cicd-deploy-
+  name: pipelinerun-cicd-deploy
+spec:
+  serviceAccountName: tekton-pipeline
+
+  pipelineRef:
+    name: ci-tekton
+  params:
+  - name: repo-url
+    value: https://github.com/ecno20/paciente-service
+  - name: tag-name
+    value: main
+  - name: image-full-path-with-tag
+    # value: image-registry.openshift-image-registry.svc:5000/tekton-demo/spring-boot-docker:v1.1.0
+    value: docker.io/ecno20/cloud-paciente-service:1.0
+  # - name: deployment-manifest
+  #  value: https://raw.githubusercontent.com/brightzheng100/tekton-pipeline-example/master/manifests/deployment.yaml
+  - name: maven-image
+    value: gcr.io/cloud-builders/mvn@sha256:8f38a2667125a8d83f6e1997847fedb6a06f041c90e2244884153d85d95f869b
+  workspaces:
+  - name: maven-settings
+    configmap:
+      name: maven-settings
+  - name: workspace
+    persistentvolumeclaim:
+      claimName: shared-workspace
+  - name: empty-dir
+    emptyDir: {}
+      
