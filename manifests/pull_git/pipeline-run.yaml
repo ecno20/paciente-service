@@ -18,9 +18,9 @@ spec:
         resources:
           requests:
             storage: 1Gi
-  - name: github-secret
+  - name: git-credentials
     secret:
-      secretName: github-secret
+      secretName: git-credentials
   params:
   - name: repo-url
     value: https://github.com/ecno20/paciente-service/
