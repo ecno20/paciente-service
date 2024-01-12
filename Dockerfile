@@ -10,7 +10,7 @@ ENV TOMCAT_PORT 8080
 ENV MONGO_AUTHDB admin
 ENV MONGO_PORT 27017
 EXPOSE 27017
-EXPOSE 8083
+EXPOSE 8084
 ARG JAR_FILE=target/*.jar
 COPY target/*.jar app.jar
 CMD ["java", "-jar", "/app.jar"]
