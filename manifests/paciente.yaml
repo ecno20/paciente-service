@@ -42,7 +42,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 8080
+    targetPort: 8084
   selector:
     app: notificaciones
   type: ClusterIP
