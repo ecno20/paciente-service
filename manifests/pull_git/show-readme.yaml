@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  creationTimestamp: "2023-11-18T01:24:00Z"
+  generation: 1
+  name: show-readme
+  namespace: user4
+  resourceVersion: "73797447"
+  uid: d84b0132-c042-49a3-93dc-9b14fab9c81c
+spec:
+  description: Read and display README file.
+  steps:
+  - computeResources: {}
+    image: alpine:latest
+    name: read
+    script: |
+      #!/usr/bin/env sh
+      cat $(workspaces.source.path)/README.md
+  workspaces:
+  - name: source
