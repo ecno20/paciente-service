@@ -17,8 +17,7 @@ The complete specification of the image that contains the application is in the 
 ## Building the image.
 Build the image using `docker` or `podman`, below the commands for using podman. More information on how to use it [here](https://podman.io/). The first version for a standard is frequently used `1.0.`
 
-> <i class="fas fa-exclamation-triangle"></i>
-> **Warning:**
+> [!Warning]
 >  Don't forget to use your Hub's account to tag the image, because when pushing the image to the hub, the account is where it will be located.
 
 `docker build -t ecno20/cloud-paciente-service:1.0 .`
@@ -77,8 +76,7 @@ The expected output after the previous command looks like this:
 ## Publishing
 
 Publish the image in a docker hub account using the next command.
-> <i class="fas fa-exclamation-triangle"></i>
-> **Important:**
+> [!Important]
 >  If you are not logged in to the hub, use the login command:
 > ```docker login {myuser}```
 >  then type the password.
