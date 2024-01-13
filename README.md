@@ -244,6 +244,7 @@ Code 201	OK
  
 ```
 
+> cafaray: __Verification of the trigger pipeline.__
 
 ### Reference Documentation
 For further reference, please consider the following sections:
