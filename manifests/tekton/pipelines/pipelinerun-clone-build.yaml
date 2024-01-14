@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
   # generateName: pipelinerun-cicd-deploy-
-  # generateName: pipelinerun-cicd-deploy
+  # generateName: pipelinerun-cicd-deploy-
   name: pipelinerun-cicd-deploy
 spec:
   serviceAccountName: tekton-pipeline
