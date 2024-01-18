@@ -67,4 +67,4 @@ spec:
       - name: maven-settings
         workspace: maven-settings
       - name: source
-        workspace: output
+        workspace: workspace
