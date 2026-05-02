@@ -1,0 +1,28 @@
+name: CI Caller
+
+on:
+  push:
+    branches: [ "main", "develop", "staging", "hotfix-add-CI" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+  # Disparador manual para Rollback
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Tag de la versión para Rollback (ej: v1.0.1)'
+        required: true
+        type: string  
+
+jobs:
+  # Se Invoca el flujo reutilizable del repo central
+  call-java-pipeline:
+    permissions:      # <--- Se añaden los permisos lectura/escritura
+      checks: write
+      pull-requests: write
+      contents: write
+    uses: ecno20/devops-library/.github/workflows/java-build.yml@main
+    with:
+      java-version: '17'
+      version: ${{ github.event.inputs.version }}
+    # ecno20 agrega variable "version" para invocar en flujo principal
+    # Próximamente agregaré los secretos (GCP_PROJECT_ID), aquí
