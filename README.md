@@ -58,8 +58,10 @@ Successfully built c463684dddb4
 Successfully tagged ecno20/cloud-paciente-service:1.0
 ```
 
-## Add CI/CD QA
-
+  ## Add CI/CD QA
+  ```bash
+ Status badge added
+  ```
 [![CI Caller](https://github.com/ecno20/paciente-service/actions/workflows/ci.yml/badge.svg)](https://github.com/ecno20/paciente-service/actions/workflows/ci.yml)
 
 ## Running the application.
