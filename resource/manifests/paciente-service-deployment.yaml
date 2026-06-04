@@ -16,4 +16,4 @@ spec:
         - name: paciente-service-container
           image: ecno20/cloud-paciente-service:v1.0
           ports:
-            - containerPort: 8084
+            - containerPort: 8080

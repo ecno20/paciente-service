@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: maven-
+spec:
+  taskRef:
+    kind: Task
+    name: maven
+  params:
+  - name: GOALS
+    value:
+      - -B
+      - -DskipTests
+      - clean
+      - package
+  - name: MAVEN_IMAGE
+    value: gcr.io/cloud-builders/mvn@sha256:8f38a2667125a8d83f6e1997847fedb6a06f041c90e2244884153d85d95f869b
+  workspaces:
+    - name: maven-settings
+      configmap:
+        name: maven-settings
+    - name: source
+      persistentVolumeClaim:
+        claimName: shared-workspace

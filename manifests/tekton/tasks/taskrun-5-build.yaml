@@ -1,0 +1,23 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: buildah-run-
+  namespace: user4
+spec:
+  taskRef:
+    name: buildah
+  params:
+    - name: IMAGE
+      # value: 'image-registry.openshift-image-registry.svc:5000/tekton-demo/paciente-service:snapshot'
+      # value: 'docker.io/ecno20/cloud-paciente-service:1.0'      
+      value: 'image-registry.openshift-image-registry.svc:5000/user4/paciente-service:1.0'
+      # value: 'docker.io/ecno20/cloud-paciente-service:1.0'   
+    - name: TLSVERIFY
+      value: 'false'
+    - name: STORAGE_DRIVER
+      value: 'vfs'
+  workspaces:
+    - name: source
+      persistentVolumeClaim:
+        claimName: shared-workspace
+  serviceAccountName: tekton-pipeline
