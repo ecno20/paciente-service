@@ -98,8 +98,8 @@ spec:
     params:
       - name: script
         value: |
-          kubectl delete deployment notificacion-service
-          kubectl create deployment notificacion-service --image=$(params.image-full-path-with-tag)
+          kubectl delete deployment paciente-service
+          kubectl create deployment paciente-service --image=$(params.image-full-path-with-tag)
           echo "----------"
           kubectl get deployment
     workspaces:

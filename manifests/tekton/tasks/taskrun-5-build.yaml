@@ -8,9 +8,9 @@ spec:
     name: buildah
   params:
     - name: IMAGE
-      # value: 'image-registry.openshift-image-registry.svc:5000/tekton-demo/notificaciones:snapshot'
+      # value: 'image-registry.openshift-image-registry.svc:5000/tekton-demo/paciente-service:snapshot'
       # value: 'docker.io/ecno20/cloud-paciente-service:1.0'      
-      value: 'image-registry.openshift-image-registry.svc:5000/user15/mascota-rest-app:1.0'
+      value: 'image-registry.openshift-image-registry.svc:5000/user4/paciente-service:1.0'
       # value: 'docker.io/ecno20/cloud-paciente-service:1.0'   
     - name: TLSVERIFY
       value: 'false'

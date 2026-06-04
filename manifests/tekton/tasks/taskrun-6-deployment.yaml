@@ -8,8 +8,8 @@ spec:
   params:
     - name: script
       value: |
-        kubectl delete deployment paciente-service
-        kubectl create deployment paciente-service --image=docker.io/ecno20/cloud-paciente-service:1.0
+        kubectl delete deployment notificaciones-service
+        kubectl create deployment notificaciones-service --image=docker.io/ecno20/cloud-paciente-service:1.0
         echo "----------"
         kubectl get deployment
   workspaces:

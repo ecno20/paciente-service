@@ -37,7 +37,7 @@ pipeline {
         stage("Docker Build") {
             steps {
               sh '''
-                  oc start-build paciente --from-file=./Dockerfile
+                  oc start-build notificaciones --from-file=./Dockerfile
               '''
             }
         }

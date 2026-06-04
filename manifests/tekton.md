@@ -54,7 +54,7 @@ tkn pipeline start pipeline-git-clone-build-push-deploy \
 -s tekton-pipeline \
 --param=repo-url=https://github.com/ecno20/paciente-service \
 --param=tag-name=main \
---param=image-full-path-with-tag=docker.io/ecno20/
+--param=image-full-path-with-tag=docker.io/cafaray/
 --param=deployment-manifest=https://raw.githubusercontent.com/brightzheng100/tekton-pipeline-example/master/manifests/deployment.yaml \
 --workspace=name=workspace,claimName=shared-workspace \
 --workspace=name=maven-settings,config=maven-settings \

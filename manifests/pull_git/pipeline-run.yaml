@@ -23,4 +23,4 @@ spec:
       secretName: git-credentials
   params:
   - name: repo-url
-    value: https://github.com/ecno20/paciente-service/
+    value: https://github.com/ecno20/paciente-service
