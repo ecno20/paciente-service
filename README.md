@@ -17,8 +17,7 @@ The complete specification of the image that contains the application is in the 
 ### Building the image.
 Build the image using `docker` , below the commands for using docker. More information on how to use it [here](https://docs.docker.com/docker-hub/). The first version for a standard is frequently used `1.0.`
 
-
-> [!Warning]
+>[!warning]
 >  Don't forget to use your Hub's account to tag the image, because when pushing the image to the hub, the account is where it will be located.
 
 `docker build -t ecno20/cloud-paciente-service:1.0 .`
