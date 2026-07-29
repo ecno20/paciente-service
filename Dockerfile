@@ -21,7 +21,7 @@ RUN mvn clean install
 #Cambia a una imagen más ligera de Java para la ejecución
 FROM eclipse-temurin:25
 #Copia el archivo JAR generado en la etapa anterior
-COPY --from=build /usr/src/app/target/paciente-service-0.0.1-SNAPSHOT.jar /app/paciente-service.jar
+COPY --from=build /usr/src/app/target/paciente-service.jar /app/paciente-service.jar
 #Expone el puerto en el que la aplicación se ejecutará
 EXPOSE 8080
 CMD ["java", "-jar", "/app/paciente-service.jar"]

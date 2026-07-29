@@ -20,6 +20,7 @@ jobs:
       checks: write
       pull-requests: write
       contents: write
+      packages: write
     uses: ecno20/devops-library/.github/workflows/java-build.yml@main
     with:
       java-version: '17'
