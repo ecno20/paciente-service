@@ -1,14 +1,23 @@
 # Usa la imagen oficial de Maven como imagen base
 FROM maven:3.8.5-openjdk-17-slim AS build
-MAINTAINER Jonathan Díaz <jdsmatemaster@gmail.com>
+#MAINTAINER Jonathan Díaz <jdsmatemaster@gmail.com>
+LABEL author="Jonathan ecno20"
 # a default value
-ENV MONGO_HOSTNAME localhost
-ENV MONGO_DB veterinaria
-ENV MONGO_USER usuario_owner
-ENV MONGO_PWD usuario_password
-ENV TOMCAT_PORT 8080
-ENV MONGO_AUTHDB admin
-ENV MONGO_PORT 27017
+#LegacyKeyValueFormat: "ENV key=value"
+# ENV MONGO_HOSTNAME localhost
+# ENV MONGO_DB veterinaria
+# ENV MONGO_USER usuario_owner
+# ENV MONGO_PWD usuario_password
+# ENV TOMCAT_PORT 8080
+# ENV MONGO_AUTHDB admin
+# ENV MONGO_PORT 27017
+ENV MONGO_HOSTNAME=localhost
+ENV MONGO_DB=veterinaria
+ENV MONGO_USER=usuario_owner
+ENV MONGO_PWD=usuario_password
+ENV TOMCAT_PORT=8080
+ENV MONGO_AUTHDB=admin
+ENV MONGO_PORT=27017
 EXPOSE 27017
 EXPOSE 8084
 #Copia los archivos de configuración y el código fuente
