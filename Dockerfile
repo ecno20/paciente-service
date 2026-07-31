@@ -4,13 +4,6 @@ FROM maven:3.8.5-openjdk-17-slim AS build
 LABEL author="Jonathan ecno20"
 # a default value
 #LegacyKeyValueFormat: "ENV key=value"
-# ENV MONGO_HOSTNAME localhost
-# ENV MONGO_DB veterinaria
-# ENV MONGO_USER usuario_owner
-# ENV MONGO_PWD usuario_password
-# ENV TOMCAT_PORT 8080
-# ENV MONGO_AUTHDB admin
-# ENV MONGO_PORT 27017
 ENV MONGO_HOSTNAME=localhost
 ENV MONGO_DB=veterinaria
 ENV MONGO_USER=usuario_owner
