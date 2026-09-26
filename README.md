@@ -20,7 +20,7 @@ Build the image using `docker` , below the commands for using docker. More infor
 >[!warning]
 >  Don't forget to use your Hub's account to tag the image, because when pushing the image to the hub, the account is where it will be located.
 
-`docker build -t ecno20/cloud-paciente-service:1.0 .`
+`docker build -t ecno20/cloud-paciente-service:4.2 .`
 
 The result should look like this:
 
@@ -28,33 +28,64 @@ The result should look like this:
 
   
   ```bash
-Sending build context to Docker daemon  200.2kB
-Step 1/7 : FROM openjdk:17-oracle
- ---> 5e28ba2b4cdb
-Step 2/7 : MAINTAINER Jonathan Díaz <jdsmatemaster@gmail.com>
- ---> Running in 9eeb5bfb703c
-Removing intermediate container 9eeb5bfb703c
- ---> a8f2a3052de0
-Step 3/7 : EXPOSE 27017
- ---> Running in cf85673e7b2b
-Removing intermediate container cf85673e7b2b
- ---> 0a8fc8773a8e
-Step 4/7 : EXPOSE 8080
- ---> Running in bd7dae843657
-Removing intermediate container bd7dae843657
- ---> faadf90e0d09
-Step 5/7 : ARG JAR_FILE=target/*.jar
- ---> Running in 61043b489a11
-Removing intermediate container 61043b489a11
- ---> a9246846d2e7
-Step 6/7 : COPY target/*.jar app.jar
- ---> 939f5f1b57e2
-Step 7/7 : CMD ["java", "-jar", "/app.jar"]
- ---> Running in 693a2409b50f
-Removing intermediate container 693a2409b50f
- ---> c463684dddb4
-Successfully built c463684dddb4
-Successfully tagged ecno20/cloud-paciente-service:1.0
+Sending build context to Docker daemon  1.138MB
+Step 1/19 : FROM maven:3.8.5-openjdk-17-slim AS build
+ ---> 502e781d39f0
+Step 2/19 : LABEL author="Jonathan ecno20"
+ ---> Using cache
+ ---> ed2f6fbf76cd
+Step 3/19 : ENV MONGO_HOSTNAME=localhost
+ ---> Using cache
+ ---> adc2750191c3
+Step 4/19 : ENV MONGO_DB=veterinaria
+ ---> Using cache
+ ---> eec760eebf0d
+Step 5/19 : ENV MONGO_USER=usuario_owner
+ ---> Using cache
+ ---> b4df47a068df
+Step 6/19 : ENV MONGO_PWD=usuario_password
+ ---> Using cache
+ ---> 8ed7818b3a47
+Step 7/19 : ENV TOMCAT_PORT=8080
+ ---> Using cache
+ ---> ac7e3e9a27ff
+Step 8/19 : ENV MONGO_AUTHDB=admin
+ ---> Using cache
+ ---> a7d1067db045
+Step 9/19 : ENV MONGO_PORT=27017
+ ---> Using cache
+ ---> bcb2c0687cb2
+Step 10/19 : EXPOSE 27017
+ ---> Using cache
+ ---> c6486c3347c4
+Step 11/19 : EXPOSE 8084
+ ---> Using cache
+ ---> d11a3e5468cc
+Step 12/19 : COPY src /usr/src/app/src
+ ---> Using cache
+ ---> 6ef217091af8
+Step 13/19 : COPY pom.xml /usr/src/app
+ ---> Using cache
+ ---> 9d0a35a3e871
+Step 14/19 : WORKDIR /usr/src/app
+ ---> Using cache
+ ---> b28ee7d01aa7
+Step 15/19 : RUN mvn clean install
+ ---> Using cache
+ ---> e67b35ab3ed8
+Step 16/19 : FROM eclipse-temurin:25
+ ---> c2b7ea216498
+Step 17/19 : COPY --from=build /usr/src/app/target/paciente-service.jar /app/paciente-service.jar
+ ---> Using cache
+ ---> bd43c75ac6c4
+Step 18/19 : EXPOSE 8080
+ ---> Using cache
+ ---> 2379cab403f8
+Step 19/19 : CMD ["java", "-jar", "/app/paciente-service.jar"]
+ ---> Using cache
+ ---> 157bbb077491
+Successfully built 157bbb077491
+Successfully tagged ecno20/cloud-paciente-service:4.2
 ```
 
 ## Add CI/CD QA
