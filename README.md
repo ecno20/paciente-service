@@ -92,6 +92,10 @@ Successfully tagged ecno20/cloud-paciente-service:4.2
 
 [![CI Caller](https://github.com/ecno20/paciente-service/actions/workflows/ci.yml/badge.svg)](https://github.com/ecno20/paciente-service/actions/workflows/ci.yml)
 
+## Add CI/CD PRD status badge
+
+[![CI Caller](https://github.com/ecno20/paciente-service/actions/workflows/ci.yml/badge.svg)](https://github.com/ecno20/paciente-service/actions/workflows/ci.yml)
+
 ### Running the application.
 
 Create network in `docker`
@@ -150,7 +154,7 @@ tkn task start maven \
 ## Build image
 ```bash
 tkn task start buildah \
---param=IMAGE="docker.io/ecno20/cloud-paciente-service:1.0" \
+--param=IMAGE="docker.io/ecno20/cloud-paciente-service:4.2" \
 --param=TLSVERIFY="false" \
 --workspace=name=source,claimName=shared-workspace \
 --serviceaccount=tekton-pipeline \
