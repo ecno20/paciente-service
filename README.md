@@ -121,7 +121,7 @@ Publish the image in a docker hub account using the next command.
 >  then type the password.
  
  
-`docker push ecno20/cloud-paciente-service:1.0`
+`docker push ecno20/cloud-paciente-service:4.2`
 ## Tasks & Pipelines
 
 This project use [Tekton](https://podman.io/). as CI/CD tool. Common commands used for the automatism:
