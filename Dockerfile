@@ -26,4 +26,5 @@ FROM eclipse-temurin:25
 COPY --from=build /usr/src/app/target/paciente-service.jar /app/paciente-service.jar
 #Expone el puerto en el que la aplicación se ejecutará
 EXPOSE 8080
+#Comando para ejecutar la aplicación al iniciar el contenedor
 CMD ["java", "-jar", "/app/paciente-service.jar"]

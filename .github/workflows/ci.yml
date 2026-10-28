@@ -21,6 +21,7 @@ jobs:
       pull-requests: write
       contents: write
       packages: write
+      security-events: write
     uses: ecno20/devops-library/.github/workflows/java-build.yml@main
     with:
       java-version: '17'
